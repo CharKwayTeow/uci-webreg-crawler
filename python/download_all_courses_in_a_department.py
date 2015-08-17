@@ -1,5 +1,9 @@
 #!/usr/bin/python
 
+# This is a script to download course lists of a department in all quarters.
+# Usage: python download_all_courses_in_a_department.py department_name
+# Example: python download_all_courses_in_a_department.py COMPSCI
+
 import urllib2, sys, os, string
 
 def find_between( s, first, last ):
