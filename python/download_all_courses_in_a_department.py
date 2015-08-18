@@ -25,7 +25,7 @@ if not os.path.exists(department):
 print 'Begin to download all courses in', department, ':' 
 
 for line in webfile.splitlines():
-	if "<option" in line and "value=\"20" in line:
+	if "<option value=\"20" in line:
 		param = find_between(line, "value=\"", "\" style")
 		term = find_between(line, ">", "<")
 		query_url = "http://websoc.reg.uci.edu/perl/WebSoc?Submit=Display+Web+Results&YearTerm="+ param + "&Dept=" + department
