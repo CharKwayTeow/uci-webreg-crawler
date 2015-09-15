@@ -7,10 +7,10 @@
 department=$1
 course=$2
 echo "Quarters have course $department $course:"
-curl --silent http://websoc.reg.uci.edu/perl/WebSoc | grep '<option value="20' | while read -r line; do
+curl --silent https://www.reg.uci.edu/perl/WebSoc | grep '<option value="20' | while read -r line; do
     param=$(echo $line | cut -d'"' -f 2)
     term=$(echo $line | cut -d'>' -f 2 | cut -d'<' -f 1)
-    count=$(curl --silent http://websoc.reg.uci.edu/perl/WebSoc\?Submit\=Display+Web+Results\&YearTerm\=$param\&Dept\=$department | grep CourseTitle | grep -c $course)
+    count=$(curl --silent https://www.reg.uci.edu/perl/WebSoc\?Submit\=Display+Web+Results\&YearTerm\=$param\&Dept\=$department | grep CourseTitle | grep -c $course)
     if [[ count -gt 0 ]]; then
         echo "$term"
     fi
